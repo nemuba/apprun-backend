@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  local: MyString
+  status: 1
+  date_race: 2020-04-14
+
+two:
+  local: MyString
+  status: 1
+  date_race: 2020-04-14
