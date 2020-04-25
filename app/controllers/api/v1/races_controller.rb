@@ -53,7 +53,7 @@ module Api
 
         # Only allow a trusted parameter "white list" through.
         def race_params
-          params.require(:race).permit(:local, :status, :date_race, modality_ids: [])
+          params.require(:race).permit(:local, :status, :date_race, modality_ids: [], sponsor_ids: [])
         end
     end
 
