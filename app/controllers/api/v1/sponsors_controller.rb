@@ -5,7 +5,7 @@ module Api
 
     # GET /api/v1/sponsors
     def index
-      @sponsors = Sponsor.all
+      @sponsors = Sponsor.all.order(name: :asc)
 
       render json: @sponsors
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_21_192958) do
+ActiveRecord::Schema.define(version: 2020_05_01_050419) do
 
   create_table "modalities", force: :cascade do |t|
     t.integer "genre"
@@ -51,6 +51,18 @@ ActiveRecord::Schema.define(version: 2020_04_21_192958) do
     t.date "date_race"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "registrations", force: :cascade do |t|
+    t.integer "race_id"
+    t.integer "modality_id"
+    t.integer "player_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["modality_id"], name: "index_registrations_on_modality_id"
+    t.index ["player_id"], name: "index_registrations_on_player_id"
+    t.index ["race_id", "player_id", "modality_id"], name: "index_registrations_on_race_id_and_player_id_and_modality_id", unique: true
+    t.index ["race_id"], name: "index_registrations_on_race_id"
   end
 
   create_table "sponsors", force: :cascade do |t|

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  race: one
+  modality: one
+  player: one
+
+two:
+  race: two
+  modality: two
+  player: two

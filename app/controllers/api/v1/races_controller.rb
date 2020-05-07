@@ -6,7 +6,7 @@ module Api
 
       # GET /races
       def index
-        @races = Race.includes(:modalities)
+        @races = Race.includes(:modalities, :sponsors).order(local: :asc,date_race: :desc)
 
         render json: @races
       end
@@ -21,7 +21,7 @@ module Api
         @race = Race.new(race_params)
 
         if @race.save
-          render json: {"msg": "created with success."}
+          render json: @race
         else
           render json: @race.errors, status: :unprocessable_entity
         end

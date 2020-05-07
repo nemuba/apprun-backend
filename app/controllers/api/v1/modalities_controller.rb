@@ -6,7 +6,7 @@ module Api
 
       # GET /modalities
       def index
-        @modalities = Modality.all
+        @modalities = Modality.order(genre: :asc, oar: :asc)
 
         render json: @modalities
       end

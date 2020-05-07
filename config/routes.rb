@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   namespace :api do
@@ -10,11 +9,13 @@ Rails.application.routes.draw do
       get 'get_sponsors' => 'option#get_sponsors'
       get 'get_races' => 'option#get_races'
       get 'get_players' => 'option#get_players'
+      get 'get_race/:id/modalities' => 'option#get_race_modalities'
       resources :users
       resources :modalities
       resources :races
       resources :sponsors
       resources :players
+      resources :registrations
     end
   end
 end

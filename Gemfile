@@ -20,10 +20,16 @@ gem 'bcrypt'
 gem 'active_model_serializers'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
+# gem 'redis', '~> 3.0'
+# gem 'sidekiq-scheduler', '~> 1'
+# Cron programming
+# gem 'whenever', :require => false
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+# gem 'solargraph', group: :development
+group :development do
+  gem 'meta_request'
+end
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
