@@ -1,6 +1,6 @@
 # AARCA BACKEND - API REST
 
-[![Ruby on Rails](https://guides.rubyonrails.org/index.html)](https://via.placeholder.com/10x10.png/FF0000)
+![](https://img.shields.io/badge/Ruby%20on%20Rails-API-red)
 
 API Rest desenvolvida [Ruby on Rails](https://guides.rubyonrails.org/index.html), utilizando as seguintes Gem's:
 
@@ -56,7 +56,7 @@ API Rest desenvolvida [Ruby on Rails](https://guides.rubyonrails.org/index.html)
   "modalities":
    {
     "genre": "masculino",
-    "oar": "1" * Número de remo(S)
+    "oar": "1" 
    }
 }
 ```
@@ -81,8 +81,8 @@ API Rest desenvolvida [Ruby on Rails](https://guides.rubyonrails.org/index.html)
     "local": "Praia do Centro",
     "date_race": "2020-05-06",
     "status": "aberta" ou "finalizada",
-    "modality_ids": [1,2] * Lista de modalidades,
-    "sponsor_ids": [1,2] * Lista de patrocinadores
+    "modality_ids": [1,2],
+    "sponsor_ids": [1,2]
    }
 }
 ```
