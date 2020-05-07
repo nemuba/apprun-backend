@@ -1,6 +1,11 @@
-# AARCA BACKEND - API REST
+<h1 align="center">
+  AARCA BACKEND - API REST
+</h1>
 
+<div align="center">
 ![](https://img.shields.io/badge/Ruby%20on%20Rails-API-red)
+</div>
+
 
 API Rest desenvolvida [Ruby on Rails](https://guides.rubyonrails.org/index.html), utilizando as seguintes Gem's:
 
