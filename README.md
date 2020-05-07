@@ -6,8 +6,9 @@
   <space><space><img align="center" src="https://img.shields.io/badge/Ruby%20on%20Rails-API-red" />
 </div>
 
+<br/>
 
-API Rest desenvolvida [Ruby on Rails](https://guides.rubyonrails.org/index.html), utilizando as seguintes Gem's:
+### API Rest desenvolvida [Ruby on Rails](https://guides.rubyonrails.org/index.html), utilizando as seguintes Gem's:
 
 * [Knock](https://github.com/nsarno/knock)
 
@@ -61,7 +62,7 @@ API Rest desenvolvida [Ruby on Rails](https://guides.rubyonrails.org/index.html)
   "modalities":
    {
     "genre": "masculino",
-    "oar": "1" 
+    "oar": "1"
    }
 }
 ```
