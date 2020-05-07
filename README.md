@@ -3,7 +3,7 @@
 </h1>
 
 <div align="center">
-![](https://img.shields.io/badge/Ruby%20on%20Rails-API-red)
+  <space><space><img align="center" src="https://img.shields.io/badge/Ruby%20on%20Rails-API-red" />
 </div>
 
 
