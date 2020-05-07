@@ -1,24 +1,120 @@
-# README
+# AARCA BACKEND - API REST
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Ruby on Rails](https://guides.rubyonrails.org/index.html)](https://via.placeholder.com/10x10.png/FF0000)
 
-Things you may want to cover:
+API Rest desenvolvida [Ruby on Rails](https://guides.rubyonrails.org/index.html), utilizando as seguintes Gem's:
 
-* Ruby version
+* [Knock](https://github.com/nsarno/knock)
 
-* System dependencies
+* [bcrypt](https://github.com/codahale/bcrypt-ruby)
 
-* Configuration
+* [active_model_serializers](https://github.com/rails-api/active_model_serializers)
 
-* Database creation
+* [rack-cors](https://github.com/cyu/rack-cors)
 
-* Database initialization
+* [pg](https://github.com/ged/ruby-pg)
 
-* How to run the test suite
+### Features
 
-* Services (job queues, cache servers, search engines, etc.)
+* Autenticação(JWT)
+* CRUD - Usuários
+* CRUD - Modalidades
+* CRUD - Patrocinadores
+* CRUD - Corridas
+* CRUD - Participantes
+* CRUD - Inscrições
 
-* Deployment instructions
+### Autenticação
 
-* ...
+```json
+{
+  "auth":
+   {
+    "email": "admin@admin.com",
+    "password": "123456789"
+   }
+}
+```
+
+### CRUD - Usuários
+
+```json
+{
+  "users":
+   {
+    "email": "admin@admin.com",
+    "password": "**********",
+    "password_confirmation": "*********",
+   }
+}
+```
+
+### CRUD - Modalidades
+
+```json
+{
+  "modalities":
+   {
+    "genre": "masculino",
+    "oar": "1" * Número de remo(S)
+   }
+}
+```
+### CRUD - Patrocinadores
+
+```json
+{
+  "sponsors":
+   {
+    "name": "João da Silva",
+    "telephone": "+55 12 99724-5805"
+   }
+}
+```
+
+### CRUD - Corridas
+
+```json
+{
+  "races":
+   {
+    "local": "Praia do Centro",
+    "date_race": "2020-05-06",
+    "status": "aberta" ou "finalizada",
+    "modality_ids": [1,2] * Lista de modalidades,
+    "sponsor_ids": [1,2] * Lista de patrocinadores
+   }
+}
+```
+
+### CRUD - Participantes
+
+```json
+{
+  "players":
+   {
+    "name": "Pedro da Silva",
+    "genre": "masculino",
+    "age": "25",
+   }
+}
+```
+
+### CRUD - Inscrições
+
+```json
+{
+  "registrations":
+   {
+    "race_id": "1",
+    "modality_id": "12",
+    "player_id": "3",
+   }
+}
+```
+
+**Autor:** Alef Ojeda de Oliveira
+
+**Linkedin:** https://www.linkedin.com/in/alef-ojeda/
+
+**Facebook:** https://www.facebook.com/AlefOjedaOliveira/
