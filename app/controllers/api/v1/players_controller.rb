@@ -1,6 +1,7 @@
 module Api
   module V1
     class PlayersController < ApiController
+    before_action :authenticate_user
     before_action :set_player, only: [:show, :update, :destroy]
 
     # GET /players
