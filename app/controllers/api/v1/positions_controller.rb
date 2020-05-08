@@ -1,6 +1,6 @@
 module Api
   module V1
-    class PositionsController < ApplicationController
+    class PositionsController < ApiController
       before_action :authenticate_user
       before_action :set_position, only: [:show, :update, :destroy]
 
