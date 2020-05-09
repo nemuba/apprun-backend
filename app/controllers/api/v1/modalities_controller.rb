@@ -23,7 +23,7 @@ module Api
         if @modality.save
           render json: {"msg": "created with success"}
         else
-          render json: @modality.errors.full_messages, status: :unprocessable_entity
+          render json: @modality.errors.full_messages.to_sentence, status: :unprocessable_entity
         end
       end
 
