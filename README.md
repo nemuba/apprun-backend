@@ -29,6 +29,7 @@
 * CRUD - Corridas
 * CRUD - Participantes
 * CRUD - Inscrições
+* CRUD - Posições
 
 ### Autenticação
 
@@ -115,6 +116,18 @@
     "race_id": "1",
     "modality_id": "12",
     "player_id": "3",
+   }
+}
+```
+
+### CRUD - Posições
+
+```json
+{
+  "positions":
+   {
+    "description": "1º Lugar",
+    "score": "10"
    }
 }
 ```
