@@ -4,5 +4,5 @@ class Modality < ApplicationRecord
   has_many :races, through: :race_modalities, dependent: :destroy
 
   validates :genre, :oar, presence: true
-  validates :genre, uniqueness: { scope: :oar }, message: "Modalidade já existe !"
+  validates :genre, uniqueness: { scope: :oar }
 end
