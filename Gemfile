@@ -18,6 +18,7 @@ gem 'puma', '~> 3.11'
 gem 'knock'
 gem 'bcrypt'
 gem 'active_model_serializers'
+gem 'rails-i18n', '~> 5.1'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 # gem 'redis', '~> 3.0'
