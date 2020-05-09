@@ -10,13 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_01_050419) do
+ActiveRecord::Schema.define(version: 2020_05_09_165210) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "modalities", force: :cascade do |t|
     t.integer "genre"
     t.integer "oar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["genre", "oar"], name: "index_modalities_on_genre_and_oar", unique: true
   end
 
   create_table "players", force: :cascade do |t|
@@ -27,9 +31,16 @@ ActiveRecord::Schema.define(version: 2020_05_01_050419) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "positions", force: :cascade do |t|
+    t.string "description"
+    t.integer "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "race_modalities", force: :cascade do |t|
-    t.integer "race_id"
-    t.integer "modality_id"
+    t.bigint "race_id"
+    t.bigint "modality_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["modality_id"], name: "index_race_modalities_on_modality_id"
@@ -37,8 +48,8 @@ ActiveRecord::Schema.define(version: 2020_05_01_050419) do
   end
 
   create_table "race_sponsors", force: :cascade do |t|
-    t.integer "race_id"
-    t.integer "sponsor_id"
+    t.bigint "race_id"
+    t.bigint "sponsor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["race_id"], name: "index_race_sponsors_on_race_id"
@@ -54,9 +65,9 @@ ActiveRecord::Schema.define(version: 2020_05_01_050419) do
   end
 
   create_table "registrations", force: :cascade do |t|
-    t.integer "race_id"
-    t.integer "modality_id"
-    t.integer "player_id"
+    t.bigint "race_id"
+    t.bigint "modality_id"
+    t.bigint "player_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["modality_id"], name: "index_registrations_on_modality_id"
@@ -79,4 +90,11 @@ ActiveRecord::Schema.define(version: 2020_05_01_050419) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "race_modalities", "modalities"
+  add_foreign_key "race_modalities", "races"
+  add_foreign_key "race_sponsors", "races"
+  add_foreign_key "race_sponsors", "sponsors"
+  add_foreign_key "registrations", "modalities"
+  add_foreign_key "registrations", "players"
+  add_foreign_key "registrations", "races"
 end

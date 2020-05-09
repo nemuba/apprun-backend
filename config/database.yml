@@ -24,6 +24,9 @@ default: &default
 development:
   <<: *default
   database: aarca_development
+  user: postgres
+  host: localhost
+  port: 35432
 
 test:
   <<: *default
