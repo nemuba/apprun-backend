@@ -32,7 +32,7 @@ module Api
         if @modality.update(modality_params)
           render json: {"msg": "updated with success"}
         else
-          render json: @modality.errors, status: :unprocessable_entity
+          render json: @modality.errors, status: :non_authoritative_information
         end
       end
 
