@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      modality:
+        one: 'Modalidade'
+        other: 'Modalidade'
+      player:
+        one: 'Participante'
+    attributes:
+      modality:
+        genre: 'Gênero'
+        oar: 'Númeor de remo'
