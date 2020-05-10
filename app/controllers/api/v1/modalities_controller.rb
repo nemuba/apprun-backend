@@ -21,9 +21,9 @@ module Api
         @modality = Modality.new(modality_params)
 
         if @modality.save
-          render json: {"msg": "created with success"}
+          render json: {"msg": "created with success"}, status: :created
         else
-          render json: @modality.errors.full_messages
+          render json: @modality.errors.full_messages, status: :non_authoritative_information
         end
       end
 
