@@ -21,18 +21,18 @@ module Api
       @player = Player.new(player_params)
 
       if @player.save
-        render json: {msg: 'creted with success'}, status: :created
+        render json: @player, status: :created
       else
-        render json: @player.errors.full_messages, status: :unprocessable_entity
+        render json: @player.errors.full_messages, status: :non_authoritative_information
       end
     end
 
     # PATCH/PUT /players/1
     def update
       if @player.update(player_params)
-        render json: {msg: 'updated with success'}
+        render json: @player
       else
-        render json: @player.errors, status: :unprocessable_entity
+        render json: @player.full_messages, status: :non_authoritative_information
       end
     end
 
@@ -41,7 +41,7 @@ module Api
       if @player.destroy
         render json: {msg: 'deleted with success'}
       else
-        render json: @player.errors.full_messages
+        render json: @player.errors.full_messages, status: :non_authoritative_information
       end
     end
 

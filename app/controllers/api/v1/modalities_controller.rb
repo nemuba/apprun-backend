@@ -21,7 +21,7 @@ module Api
         @modality = Modality.new(modality_params)
 
         if @modality.save
-          render json: {"msg": "created with success"}, status: :created
+          render json: @modality, status: :created
         else
           render json: @modality.errors.full_messages, status: :non_authoritative_information
         end
@@ -30,7 +30,7 @@ module Api
       # PATCH/PUT /modalities/1
       def update
         if @modality.update(modality_params)
-          render json: {"msg": "updated with success"}
+          render json: @modality
         else
           render json: @modality.errors.full_messages, status: :non_authoritative_information
         end
@@ -39,9 +39,9 @@ module Api
       # DELETE /modalities/1
       def destroy
         if @modality.destroy
-          render json: {}, status: :no_content
+          render json: {msg: 'Delete with success'}
         else
-          render json: @modality.errors, status: :unprocessable_entity
+          render json: @modality.errors.full_messages, status: :non_authoritative_information
         end
       end
 

@@ -31,13 +31,17 @@ module Api
       if @registration.update(registration_params)
         render json: @registration
       else
-        render json: @registration.errors, status: :unprocessable_entity
+        render json: @registration.errors.full_messages , status: :non_authoritative_information
       end
     end
 
     # DELETE /registrations/1
     def destroy
-      @registration.destroy
+      if @registration.destroy
+        render json: {msg: 'Delete with success'}
+      else
+        render json: @registration.errors.full_messages, status: :non_authoritative_information
+      end
     end
 
     private

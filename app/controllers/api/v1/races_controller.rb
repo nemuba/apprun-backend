@@ -21,27 +21,27 @@ module Api
         @race = Race.new(race_params)
 
         if @race.save
-          render json: @race
+          render json: @race, status: :created
         else
-          render json: @race.errors, status: :unprocessable_entity
+          render json: @race.errors.full_messages, status: :non_authoritative_information
         end
       end
 
       # PATCH/PUT /races/1
       def update
         if @race.update(race_params)
-          render json: {"msg": "updated with success"}
+          render json: @race
         else
-          render json: @race.errors, status: :unprocessable_entity
+          render json: @race.errors.full_messages , status: :non_authoritative_information
         end
       end
 
       # DELETE /races/1
       def destroy
         if @race.destroy
-          render json: {}, status: :no_content
+          render json: {msg: 'Delete with success'}
         else
-          render json: @race, status: :unprocessable_entity
+          render json: @race, status: :non_authoritative_information
         end
       end
 

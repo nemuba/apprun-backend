@@ -23,7 +23,7 @@ module Api
         if @position.save
           render json: @position, status: :created
         else
-          render json: @position.errors, status: :unprocessable_entity
+          render json: @position.errors.full_messages, status: :non_authoritative_information
         end
       end
 
@@ -32,13 +32,17 @@ module Api
         if @position.update(position_params)
           render json: @position
         else
-          render json: @position.errors, status: :unprocessable_entity
+          render json: @position.errors.full_messages, status: :non_authoritative_information
         end
       end
 
       # DELETE /positions/1
       def destroy
-        @position.destroy
+        if @position.destroy
+          render json: {msg: 'Delete with success'}
+        else
+          render @position.errros.full_messages, status: :non_authoritative_information
+        end
       end
 
       private

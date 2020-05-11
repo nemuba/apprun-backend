@@ -21,27 +21,27 @@ module Api
         @user = User.new(user_params)
 
         if @user.save
-          render json: {"msg": "created with success"}, status: :created
+          render json: @user, status: :created
         else
-          render json: @user.errors, status: :unprocessable_entity
+          render json: @user.errors.full_messages, status: :non_authoritative_information
         end
       end
 
       # PATCH/PUT /users/1
       def update
         if @user.update(user_params)
-          render json: {"msg": "updated with success"}, status: :accepted
+          render json: @user, status: :accepted
         else
-          render json: @user.errors, status: :unprocessable_entity
+          render json: @user.errors.full_messages, status: :non_authoritative_information
         end
       end
 
       # DELETE /users/1
       def destroy
         if @user.destroy
-          render json: {}, status: :no_content
+          render json: {msg: 'Delete with success'}
         else
-          render json: @user.errors, status: :unprocessable_entity
+          render json: @user.errors.full_messages, status: :non_authoritative_information
         end
       end
 

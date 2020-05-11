@@ -20,27 +20,27 @@ module Api
       @sponsor = Sponsor.new(sponsor_params)
 
       if @sponsor.save
-        render json: {msg: "Created with success !"}, status: :created
+        render json: @sponsor, status: :created
       else
-        render json: @sponsor.errors, status: :unprocessable_entity
+        render json: @sponsor.errors.full_messages, status: :non_authoritative_information
       end
     end
 
     # PATCH/PUT /api/v1/sponsors/1
     def update
       if @sponsor.update(sponsor_params)
-        render json: {msg: "Updated with success !"}
+        render json: @sponsor
       else
-        render json: @sponsor.errors, status: :unprocessable_entity
+        render json: @sponsor.errors.full_messages, status: :non_authoritative_information
       end
     end
 
     # DELETE /api/v1/sponsors/1
     def destroy
      if  @sponsor.destroy
-      render json: {msg: "Excluded with success!"} , status: :no_content
+      render json: {msg: "Delete with success!"}
      else
-      render json: {} , status: :no_content
+      render json: @sponsor.errors.full_messages , status: :non_authoritative_information
      end
     end
 
