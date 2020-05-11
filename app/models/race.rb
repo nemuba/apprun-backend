@@ -7,4 +7,5 @@ class Race < ApplicationRecord
   has_many :modalities, through: :race_modalities, dependent: :destroy
 
   validates :local, :status, :date_race, presence: true
+  validates_associated :registrations
 end
