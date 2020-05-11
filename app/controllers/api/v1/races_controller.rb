@@ -38,7 +38,7 @@ module Api
 
       # DELETE /races/1
       def destroy
-        if @race.destroy
+        if @race.destroy!
           render json: {msg: 'Delete with success'}
         else
           render json: @race, status: :non_authoritative_information
