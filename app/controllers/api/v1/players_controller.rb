@@ -8,7 +8,7 @@ module Api
     def index
       @players = Player.includes(:registrations, :races).order(name: :asc)
 
-      render json: @players, include: ['registrations','races']
+      render json: @players,  include: '**'
     end
 
     # GET /players/1
