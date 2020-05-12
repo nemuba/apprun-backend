@@ -13,7 +13,8 @@ module Api
 
     # GET /players/1
     def show
-      render json: @player,  include: ['races','registrations']
+      @record = ActiveModelSerializers::SerializableResource.new(@player, include: '**').as_json
+      render json: @record
     end
 
     # POST /players
