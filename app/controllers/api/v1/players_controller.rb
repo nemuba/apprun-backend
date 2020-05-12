@@ -13,7 +13,7 @@ module Api
 
     # GET /players/1
     def show
-      render json: @player,  include: '**'
+      render json: @player,  include: ['races','registrations']
     end
 
     # POST /players
