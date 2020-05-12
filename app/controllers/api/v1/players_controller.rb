@@ -8,12 +8,12 @@ module Api
     def index
       @players = Player.includes(:registrations, :races).order(name: :asc)
 
-      render json: @players,  include: '**'
+      render json: @players
     end
 
     # GET /players/1
     def show
-      render json: @player
+      render json: @player,  include: '**'
     end
 
     # POST /players
