@@ -7,7 +7,7 @@ module Api
     def index
       @registrations = Registration.includes(:race, :player, :modality).order(created_at: :desc)
 
-      render json: @registrations, include: '**'
+      render json: @registrations, include: ['race','player','modality']
     end
 
     # GET /registrations/1
