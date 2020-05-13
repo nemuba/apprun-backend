@@ -1,6 +1,5 @@
 class RegistrationSerializer < ActiveModel::Serializer
   attributes :id, :race_id, :modality_id, :player_id, :date_registration
-  imbed :ids, include: true
 
   has_one :race
   has_one :modality
