@@ -1,8 +1,10 @@
 class RegistrationSerializer < ActiveModel::Serializer
   attributes :id, :race_id, :modality_id, :player_id, :date_registration
-  belongs_to :race
-  belongs_to :modality
-  belongs_to :player
+  imbed :ids, include: true
+
+  has_one :race
+  has_one :modality
+  has_one :player
 
   def date_registration
     object.created_at.strftime("%d/%m/%Y")
