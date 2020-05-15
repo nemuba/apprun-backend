@@ -5,9 +5,9 @@ module Api
 
     # GET /registrations
     def index
-      @registrations = Registration.includes(:race, :player, :modality).order(created_at: :desc)
+      @registrations = Registration.includes(:race, :player, :modality, :position).order(created_at: :desc)
 
-      render json: @registrations, include: ['race','player','modality']
+      render json: @registrations, include: ['race','player','modality','position']
     end
 
     # GET /registrations/1
@@ -52,7 +52,7 @@ module Api
 
       # Only allow a trusted parameter "white list" through.
       def registration_params
-        params.require(:registration).permit(:race_id, :modality_id, :player_id)
+        params.require(:registration).permit(:race_id, :modality_id, :player_id, :position_id)
       end
   end
 

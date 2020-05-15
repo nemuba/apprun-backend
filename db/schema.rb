@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_09_165210) do
+ActiveRecord::Schema.define(version: 2020_05_15_192124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,8 +70,10 @@ ActiveRecord::Schema.define(version: 2020_05_09_165210) do
     t.bigint "player_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "position_id"
     t.index ["modality_id"], name: "index_registrations_on_modality_id"
     t.index ["player_id"], name: "index_registrations_on_player_id"
+    t.index ["position_id"], name: "index_registrations_on_position_id"
     t.index ["race_id", "player_id", "modality_id"], name: "index_registrations_on_race_id_and_player_id_and_modality_id", unique: true
     t.index ["race_id"], name: "index_registrations_on_race_id"
   end
@@ -96,5 +98,6 @@ ActiveRecord::Schema.define(version: 2020_05_09_165210) do
   add_foreign_key "race_sponsors", "sponsors"
   add_foreign_key "registrations", "modalities"
   add_foreign_key "registrations", "players"
+  add_foreign_key "registrations", "positions"
   add_foreign_key "registrations", "races"
 end
