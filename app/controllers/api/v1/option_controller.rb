@@ -29,6 +29,11 @@ module Api
         render json: @options_players
       end
 
+      def get_positions
+        @options_positions = Position.order(description: :asc).map {|position| {value: position.id, label: position.description}}
+        render json: @options_positions
+      end
+
       private
       def set_race
         @race = Race.find(params[:id])
