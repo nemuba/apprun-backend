@@ -27,10 +27,15 @@ gem 'rails-i18n', '~> 5.1'
 # gem 'whenever', :require => false
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-# gem 'solargraph', group: :development
+gem 'solargraph', group: :development
 group :development do
   gem 'meta_request'
 end
+
+gem 'carrierwave'
+gem 'carrierwave-base64'
+gem 'cloudinary'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
