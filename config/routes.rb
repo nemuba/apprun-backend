@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get 'get_races' => 'option#get_races'
       get 'get_players' => 'option#get_players'
       get 'get_positions' => 'option#get_positions'
+      get 'get_total' => 'option#get_total'
       get 'get_race/:id/modalities' => 'option#get_race_modalities'
       resources :users
       resources :modalities

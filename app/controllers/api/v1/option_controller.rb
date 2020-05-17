@@ -34,6 +34,14 @@ module Api
         render json: @options_positions
       end
 
+      def get_total
+        @total_races = Race.count
+        @total_registrations = Registration.count
+        @total_players = Player.count
+
+        render json: {total_race: @total_races, total_registrations: @total_registrations, total_players: @total_players}
+      end
+
       private
       def set_race
         @race = Race.find(params[:id])
