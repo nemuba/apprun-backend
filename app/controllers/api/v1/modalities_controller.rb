@@ -6,7 +6,14 @@ module Api
 
       # GET /modalities
       def index
-        @modalities = Modality.order(genre: :asc, oar: :asc)
+
+        if param[:filter_genre]
+          @modalities = Modality.order(genre: :asc, oar: :asc).where(genre: param[:filter_genre])
+        elsif params[:filter_oar]
+          @modalities = Modality.order(genre: :asc, oar: :asc).where(oar: param[:filter_oar])
+        else
+          @modalities = Modality.order(genre: :asc, oar: :asc)
+        end
 
         render json: @modalities
       end
@@ -53,7 +60,7 @@ module Api
 
         # Only allow a trusted parameter "white list" through.
         def modality_params
-          params.require(:modality).permit(:genre, :oar)
+          params.require(:modality).permit(:genre, :oar, :filter_genre, :filter_oar)
         end
     end
 
