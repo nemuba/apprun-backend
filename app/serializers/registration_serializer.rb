@@ -1,5 +1,5 @@
 class RegistrationSerializer < ActiveModel::Serializer
-  attributes :id, :race_id, :modality_id, :player_id, :position_id, :date_registration
+  attributes :id, :race_id, :modality_id, :player_id, :position_id, :date_registration, :canoe
 
   has_one :race
   has_one :modality

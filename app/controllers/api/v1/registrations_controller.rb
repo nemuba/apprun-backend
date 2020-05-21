@@ -52,7 +52,7 @@ module Api
 
       # Only allow a trusted parameter "white list" through.
       def registration_params
-        params.require(:registration).permit(:race_id, :modality_id, :player_id, :position_id)
+        params.require(:registration).permit(:race_id, :modality_id, :player_id, :position_id, :canoe)
       end
   end
 
