@@ -10,4 +10,8 @@ class PlayerSerializer < ActiveModel::Serializer
     return total
   end
 
+  def local
+    object.local.blank? ? "Indefinido" : object.local
+  end
+
 end
