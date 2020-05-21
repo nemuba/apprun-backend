@@ -7,10 +7,10 @@ module Api
       # GET /modalities
       def index
 
-        if param[:filter_genre]
-          @modalities = Modality.order(genre: :asc, oar: :asc).where(genre: param[:filter_genre])
+        if params[:filter_genre]
+          @modalities = Modality.order(genre: :asc, oar: :asc).where(genre: params[:filter_genre])
         elsif params[:filter_oar]
-          @modalities = Modality.order(genre: :asc, oar: :asc).where(oar: param[:filter_oar])
+          @modalities = Modality.order(genre: :asc, oar: :asc).where(oar: params[:filter_oar])
         else
           @modalities = Modality.order(genre: :asc, oar: :asc)
         end
