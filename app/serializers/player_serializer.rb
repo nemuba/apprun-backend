@@ -5,7 +5,9 @@ class PlayerSerializer < ActiveModel::Serializer
   def score
     total = 0
     object.registrations.each do |registration|
-      total += registration.position.score
+      if registration.position.any?
+        total += registration.position.score
+      end
     end
     return total
   end
